@@ -24,7 +24,7 @@ main.go
 
 ## Database
 
-The database folder holds 2 files. The first file `connect.go` initalizes the database connection and migrates the registered models. If you are looking to add new models make sure to register them here for the database. The second file `database.go` initalizes the global DB variable that is referenced in other files.
+The database folder holds 2 files. The first file `connect.go` initializes the database connection and migrates the registered models. If you are looking to add new models make sure to register them here for the database. The second file `database.go` initializes the global DB variable that is referenced in other files.
 
 ## Handlers
 
@@ -32,22 +32,22 @@ This folder is the place that holds the functions for each model. Here you will 
 
 ## Middleware
 
-The middleware folder contains a file for each middleware function. The security middleware is applied first to everything in `router.go` and applies general security middleware to the incoming requests. The JSON middleware serializes the incoming request so that it only allows JSON. This is applied after the hello world in `router.go`. Finally the Authentication middleware is applied indivually to requests that require the user to be logged in. 
+The middleware folder contains a file for each middleware function. The security middleware is applied first to everything in `router.go` and applies general security middleware to the incoming requests. The JSON middleware serializes the incoming request so that it only allows JSON. This is applied after the hello world in `router.go`. Finally the Authentication middleware is applied individually to requests that require the user to be logged in. 
 
 ## Router
-The router file maps each incoming request to the corresponding function in `handlers`. It first applies the middleware and then groups the requests to each model and finally to the indiviual function.
+The router file maps each incoming request to the corresponding function in `handlers`. It first applies the middleware and then groups the requests to each model and finally to the individual function.
 
 ## Main.go
 
-The main.go file functions by reading for enviroment variables and applying the CORS middleware. You can change the allowed request sites in the configuration. It then connects to the database by running the function from `database/connect.go` and finally initalizes the app through the router.
+The main.go file functions by reading for environment variables and applying the CORS middleware. You can change the allowed request sites in the configuration. It then connects to the database by running the function from `database/connect.go` and finally initializes the app through the router.
 
 # Debug
 
-the port can be specified with an enviroment variable but will default to 3000 if not specified.
+the port can be specified with an environment variable but will default to 3000 if not specified.
 
 ## Database
 
-to run the database on docker use the following command: `docker run --name database -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:alpine`. and to connect to the database you can set the enviroment variable of `DATABASE_URL="host=localhost port=5432 user=postgres password=password dbname=postgres sslmode=disable"`
+to run the database on docker use the following command: `docker run --name database -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:alpine`. and to connect to the database you can set the environment variable of `DATABASE_URL="host=localhost port=5432 user=postgres password=password dbname=postgres sslmode=disable"`
 
 ## Docker
 Docker build base image in first stage for development
@@ -63,7 +63,7 @@ stop and remove container
 `docker stop fiber; docker rm fiber`
 
 ## Recommended
-run a postgres databse in docker and use the [fiber command line](https://github.com/gofiber/cli) to hot reload your application. Note: you can hot reload using docker or the fiber command line
+run a postgres database in docker and use the [fiber command line](https://github.com/gofiber/cli) to hot reload your application. Note: you can hot reload using docker or the fiber command line
 
 # Dependencies
 

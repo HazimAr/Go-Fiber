@@ -7,7 +7,6 @@ import (
 )
 
 func Initalize(router *fiber.App) {
-
 	router.Use(middleware.Security)
 
 	router.Get("/", func(c *fiber.Ctx) error {
